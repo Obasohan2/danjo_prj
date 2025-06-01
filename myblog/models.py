@@ -22,7 +22,7 @@ class Post(models.Model):
     caption = models.CharField(max_length=200, blank=True, null=True)
     excerpt = models.TextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
-    community = models.ForeignKey(Community, on_delete=models.SET_NULL, null=True)
+    community = models.ForeignKey(Community, on_delete=models.CASCADE, related_name='blog_posts')
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='liked_posts', blank=True)
     
