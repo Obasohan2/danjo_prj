@@ -22,9 +22,9 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
-    
-    
+
+
 @admin.register(Community)
 class CommunityAdmin(admin.ModelAdmin):
-    list_display = ('name',)
-    search_fields = ['name']
+    list_display = ('id', 'name')  # Customize as needed
+    search_fields = ('name',)
