@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}TechTalk{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'home' %}">TechTalk</a></h1>
+        {% if user.is_authenticated %}
+            <p>Hello, {{ user.username }} | <a href="">Logout</a></p>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+        <hr>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
